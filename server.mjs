@@ -3,10 +3,15 @@ import dotenv from 'dotenv';
 import morgan from 'morgan';
 import cors from "cors";
 import globalErrorHandler from './middleware/globalErr.mjs';
+import connectDB from './db/conn.mjs';
+
+
 
 dotenv.config();
 const PORT = process.env.PORT;
 const app = express();
+
+connectDB();
 
 app.use(cors());
 app.use(morgan('tiny'));
