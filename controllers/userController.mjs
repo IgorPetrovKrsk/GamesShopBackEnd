@@ -24,7 +24,7 @@ async function register (req,res){
 }
 
  async function login (req,res) {
-    const {email, password} = req.body;
+    const {email, password,token} = req.body;
     if (!email || !password){
         return res.status(400).json({msg: 'Email and password are required.'});
     }    
@@ -32,7 +32,7 @@ async function register (req,res){
     if (!user || user.password!=password){
         return res.status(401).json({msg: 'Authentication failed'});
     }
-    res.status(200).json({userId: user._id, cartId: user.cart._id});
+    res.status(200).json({userId: user._id,userToken: token, cartId: user.cart._id});
 }
 
 export default {login,register}

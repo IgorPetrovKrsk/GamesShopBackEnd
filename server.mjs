@@ -5,6 +5,7 @@ import cors from "cors";
 import globalErrorHandler from './middleware/globalErr.mjs';
 import connectDB from './db/conn.mjs';
 import userRoutes from './routes/userRoutes.mjs'
+import gameRoutes from './routes/gameRoutes.mjs'
 
 
 
@@ -19,6 +20,7 @@ app.use(morgan('tiny'));
 app.use(express.json());
 
 app.use('/api/user', userRoutes);
+app.use('/api/game', gameRoutes);
 
 app.use(globalErrorHandler);
 
