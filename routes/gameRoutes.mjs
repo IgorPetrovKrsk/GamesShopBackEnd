@@ -14,5 +14,15 @@ router.get ('/', async (req,res)=>{
     res.json(allGames);
 });
 
+router.put ('/:id', authMiddleware.auth,authMiddleware.adminAuth, async (req,res) => {
+    let updatedGame = await Game.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.json(updatedGame);
+});
+
+router.delete ('/:id', authMiddleware.auth,authMiddleware.adminAuth, async (req,res) => {
+    let deletedGame = await Game.findByIdAndDelete(req.params.id, req.body, {new: true});
+    res.json(deletedGame);
+});
+
 
 export default router;
