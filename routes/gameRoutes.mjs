@@ -6,9 +6,13 @@ const router = express.Router();
 
 router.post ('/',authMiddleware.auth,authMiddleware.adminAuth, async (req,res) => {
     const newGame = await Game.insertOne(req.body);
-    res.json(newGame);
+    res.status(201).json(newGame);
 });
 
+router.get ('/', async (req,res)=>{
+    const allGames = await Game.find({});
+    res.json(allGames);
+});
 
 
 export default router;
