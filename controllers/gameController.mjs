@@ -1,4 +1,5 @@
 import Game from '../models/gameSchema.mjs';
+import gamesSeedData from '../utilities/gamesSeedData.mjs'
 
 async function createGame (req,res) {
     const newGame = await Game.insertOne(req.body);
@@ -20,5 +21,11 @@ async function deleteGame(req,res) {
     res.json(deletedGame);
 }
 
+async function seedGame (req, res) {
+  await Game.deleteMany({}); //Delete all data
+  await Game.create(gamesSeedData); //reseed all data
+  res.send('seeded data');
+};
 
-export default {createGame,getAllGames,putGame,deleteGame};
+
+export default {createGame,getAllGames,putGame,deleteGame,seedGame};

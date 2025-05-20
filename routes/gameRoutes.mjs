@@ -13,5 +13,6 @@ router.put ('/:id', authMiddleware.auth,authMiddleware.adminAuth, gameController
 
 router.delete ('/:id', authMiddleware.auth,authMiddleware.adminAuth, gameController.deleteGame);
 
+router.post('/seed', authMiddleware.auth,authMiddleware.adminAuth, gameController.seedGame);
 
 export default router;
