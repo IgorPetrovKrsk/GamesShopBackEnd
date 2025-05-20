@@ -6,7 +6,7 @@ const gameSchema = new mongoose.Schema({
    price: {type:Number, required:true},
    desc: {type:String},
    qty: {type:Number, required: true},
-   image: {type:String}
+   img: {type:String}
 });
 
 export default mongoose.model('Game', gameSchema)
