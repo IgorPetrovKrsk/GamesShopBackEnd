@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 const cartItemSchema = new mongoose.Schema({
     game: {type: mongoose.Schema.Types.ObjectId, ref: 'Game', required: true},
-    price: {type: Number, required: true},
     qty: {type: Number, default:1, min: 1}
 })
 

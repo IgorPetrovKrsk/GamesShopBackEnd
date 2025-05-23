@@ -6,6 +6,7 @@ import globalErrorHandler from './middleware/globalErr.mjs';
 import connectDB from './db/conn.mjs';
 import userRoutes from './routes/userRoutes.mjs'
 import gameRoutes from './routes/gameRoutes.mjs'
+import cartRoutes from './routes/cartRoutes.mjs'
 
 
 
@@ -21,6 +22,7 @@ app.use(express.json());
 
 app.use('/api/user', userRoutes);
 app.use('/api/game', gameRoutes);
+app.use('/api/cart', cartRoutes);
 
 app.use(globalErrorHandler);
 
